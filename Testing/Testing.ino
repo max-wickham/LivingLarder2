@@ -53,6 +53,10 @@ void water(WaterState &ws)
     // check that it is time to change the water
     if (mill < ws.prevWaterTime + ws.waterDelay)
     {
+        // save state of switches
+        for(int i = 0; i < 4; i++){
+            ws.prevFloatSwitchState[i] = digitalRead(floatSwitch[i]);
+        }
         return;
     }
 
