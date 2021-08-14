@@ -1,5 +1,8 @@
 {
-    "board": "arduino:avr:uno",
+    "board": "esp32:esp32:node32s",
+    "port":"/dev/ttyUSB0",
     "programmer": "arduino:avrisp",
-    "sketch": "Testing/Testing.ino"
+    "output":"./build",
+    "sketch": "Testing/Testing.ino",
+    "configuration": "PartitionScheme=default,FlashFreq=80,UploadSpeed=921600,DebugLevel=none"
 }
