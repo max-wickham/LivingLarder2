@@ -55,10 +55,10 @@ void setup()
 void test(){
     for (int i = 0; i < 3; i++)
     {
-        valveOut[i] = LOW;
+        valveOut[i] = HIGH;
     }
-    valveOut[2] = LOW;
-    pumpOut = LOW;
+    valveOut[2] = HIGH;
+    pumpOut = HIGH;
     lightsOut = HIGH;
 }
 
@@ -133,13 +133,14 @@ void output()
     digitalWrite(pump, !pumpOut);
     lightsOut = (!pumpOut)&&lightsOut; // turn off lights if pump is on
     digitalWrite(lights, !lightsOut);
-
-    /*Serial.print("Switch0 ");
+    // /*
+    Serial.print("Switch0 ");
     Serial.println(digitalRead(floatSwitch[0]));
     Serial.print("Switch1 ");
     Serial.println(digitalRead(floatSwitch[1]));
     Serial.print("Switch2 ");
     Serial.println(digitalRead(floatSwitch[2]));
     Serial.print("Switch3 ");
-    Serial.println(digitalRead(floatSwitch[3]));*/
+    Serial.println(digitalRead(floatSwitch[3]));
+    // */
 }
