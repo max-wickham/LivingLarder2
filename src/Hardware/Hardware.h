@@ -63,7 +63,7 @@ class Hardware{
     inline void readPins();
 
     public:
-    Hardware(int &memoryOffset);
+    Hardware(int memoryOffset);
     Hardware();
     // takes the time in seconds since the start of the day, should be run on in void loop
     void run(unsigned int seconds);

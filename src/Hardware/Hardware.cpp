@@ -32,7 +32,7 @@ void LightState::save(int &memoryOffset, LightSettings newLightSettings){
     Memory.writeInt(this->lightSettings.endTime,memoryOffset++);
 }
 
-Hardware::Hardware(int &memoryOffset){
+Hardware::Hardware(int memoryOffset){
     // TODO add logic for first ever start up
     setupPins();
     // load state from memory
