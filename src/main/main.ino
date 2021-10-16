@@ -1,14 +1,17 @@
+#include "../Time/Time.h"
 #include "../Hardware/Hardware.h"
 
 Hardware hardware;
+Time time;
+int memoryOffset = 0;
 
 void start(){
-    // TODO add check to see if this is the first run
-    hardware = Hardware();
-    
+    hardware = Hardware(memoryOffset);
+    time = Time();
 }
 
 void loop(){
-    long int seconds;
+    // seconds since the start of the day
+    long int seconds = time.getSeconds();
     hardware.run(seconds);
 }
