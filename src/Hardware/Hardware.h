@@ -42,14 +42,14 @@ class Hardware{
     so the top tray will use the pins in the 0 item of the pin arrays 
     */
     // outputs
-    int lightsPin;
+    const int lightsPin = 0;
     bool lightOutput;
-    int waterPumpPin;
+    const int waterPumpPin = 0;
     bool waterPumpOutput;
-    int valvePins[3]; 
+    const int valvePins[3] = [0,0,0]; 
     bool valveOutput[3];
     // inputs
-    int floatSwitchPins[4];
+    const int floatSwitchPins[4] = [0,0,0,0];
     bool floatSwitchState[3];
 
     WaterState waterState;

@@ -8,7 +8,7 @@ struct WaterSettings {
 };
 
 
-void print(int x[3]){
+void print(const int x[3]){
     for(int i = 0; i < 3; i++){
         cout << x[i] << endl;
     }
