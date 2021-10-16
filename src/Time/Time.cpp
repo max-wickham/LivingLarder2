@@ -6,7 +6,7 @@ Time::Time(){
     //TODO implement
 }
 
-unsigned long int Time::getSeconds(){
+unsigned int Time::getSeconds(){
     //TODO implement
     return 0;
 }

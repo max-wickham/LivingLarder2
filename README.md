@@ -13,3 +13,6 @@ This class is simply used to interface with the RTC connected to the ESP32. The 
 
 ### Communication Class
 This class handles all of the bluetooth communication of the system with the mobile application used to control the system. 
+
+### Memory Class
+This class is used by the hardware class to interface with onboard EEPROM.

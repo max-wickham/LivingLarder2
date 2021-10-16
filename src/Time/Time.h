@@ -4,5 +4,5 @@
 class Time{
     public:
     Time();
-    unsigned long int getSeconds();
+    unsigned int getSeconds();
 }

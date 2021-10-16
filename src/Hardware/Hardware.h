@@ -6,8 +6,8 @@ All times are measured in seconds unless specified otherwise
 // TODO add support for flow rate meter
 
 struct WaterSettings { 
-    unsigned long trayWaterTimes[4];
-    unsigned long trayWaterUnits;
+    unsigned int trayWaterTimes[4];
+    unsigned int trayWaterUnits;
 };
 
 struct WaterState
@@ -21,8 +21,8 @@ struct WaterState
 };
 
 struct LightSettings {
-    unsigned long startTime;
-    unsigned long endTime;
+    unsigned int startTime;
+    unsigned int endTime;
 };
 
 struct LightState
@@ -57,8 +57,8 @@ class Hardware{
 
     void setupPins();
     // only called in one place so should be inline to impove efficiency
-    inline void runWaterSystem(unsigned long int seconds);
-    inline void runLightSystem(unsigned long int seconds);
+    inline void runWaterSystem(unsigned int seconds);
+    inline void runLightSystem(unsigned int seconds);
     inline void writePins();
     inline void readPins();
 
@@ -66,7 +66,7 @@ class Hardware{
     Hardware(int &memoryOffset);
     Hardware();
     // takes the time in seconds since the start of the day, should be run on in void loop
-    void run(unsigned long int seconds);
+    void run(unsigned int seconds);
     // should update the necessary watering times for each tray in seconds and the light start and end times
     void updateState(int &memoryOffset, WaterSettings newWaterSettings, LightSettings newLightSettings);
 

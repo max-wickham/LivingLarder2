@@ -12,6 +12,6 @@ void start(){
 
 void loop(){
     // seconds since the start of the day
-    long int seconds = time.getSeconds();
+    unsigned int seconds = time.getSeconds();
     hardware.run(seconds);
 }

@@ -1,25 +1,39 @@
 #include "Hardware.h"
 #include "Arduino.h"
+#include "../Memory/Memory.h"
 
 void WaterState::load(int &memoryOffset){
-    //TODO implement read from memory
+    // Read each value from memory and then increment the memory offset
+    for(int i = 0; i < 4; i++){
+        waterSettings.trayWaterTimes[i] = Memory.readInt(memoryOffset++);
+    }
+    waterSettings.trayWaterUnits =  Memory.readInt(memoryOffset++);
 }
 
 void WaterState::save(int &memoryOffset, WaterSettings newWaterSettings){
-    waterSettings = newWaterSettings;
-    //TODO implement write to memory
+    this->waterSettings = newWaterSettings;
+    // Write each value to memory and then increment the memory offset
+    for(int i = 0; i < 4; i++){
+        Memory.writeInt(this->waterSettings.trayWaterTimes[i],memoryOffset++);
+    }
+    Memory.writeInt(this->waterSettings.trayWaterUnits,memoryOffset++);
 }
 
 void LightState::load(int &memoryOffset){
-    //TODO implement read from memory
+    // Read each value from memory and then increment the memory offset
+    this->lightSettings.startTime = Memory.readInt(memoryOffset++);
+    this->lightSettings.endTime = Memory.readInt(memoryOffset++);
 }
 
 void LightState::save(int &memoryOffset, LightSettings newLightSettings){
-    lightSettings = newLightSettings;
-    //TODO implement write to memory
+    this->lightSettings = newLightSettings;
+    // Write each value to memory and then increment the memory offset
+    Memory.writeInt(this->lightSettings.startTime,memoryOffset++);
+    Memory.writeInt(this->lightSettings.endTime,memoryOffset++);
 }
 
 Hardware::Hardware(int &memoryOffset){
+    // TODO add logic for first ever start up
     setupPins();
     // load state from memory
     waterState.load(memoryOffset);
@@ -48,7 +62,7 @@ void Hardware::updateState(int &memoryOffset, WaterSettings newWaterSettings, Li
     lightState.save(memoryOffset, newLightSettings);
 }
 
-void Hardware::run(unsigned long int seconds){
+void Hardware::run(unsigned int seconds){
     // read the inputs
     readPins();
     // run the state management systems
@@ -73,11 +87,11 @@ inline void Hardware::readPins(){
 }
 
 
-inline void Hardware::runWaterSystem(unsigned long int seconds){
+inline void Hardware::runWaterSystem(unsigned int seconds){
 
 }
 
-inline void Hardware::runLightSystem(unsigned long int seconds){
+inline void Hardware::runLightSystem(unsigned int seconds){
     if(lightState.lightSettings.startTime > lightState.lightSettings.endTime){
         // case the in which the lights are on at midnight
         lightOutput = ((seconds > lightState.lightSettings.startTime) || (seconds < lightState.lightSettings.endTime));
