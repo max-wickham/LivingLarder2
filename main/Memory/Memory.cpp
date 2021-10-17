@@ -1,8 +1,9 @@
 #include "Arduino.h"
 #include "Memory.h"
 #include <EEPROM.h>
+//TODO change to ESP32 EEPROM library
 
-static int Memory::readInt(int wordAddress){
+int Memory::readInt(int wordAddress){
     int byteAddress = (wordAddress << 2);
     int byte0 = EEPROM.read(byteAddress++);
     int byte1 = EEPROM.read(byteAddress++);
@@ -19,7 +20,7 @@ static int Memory::readInt(int wordAddress){
     result = (result | (byte3 & mask));
 }
 
-static int Memory::writeInt(int data, int wordAddress){
+int Memory::writeInt(int data, int wordAddress){
     int byteAddress = (wordAddress << 2);
     int mask = (1 << 8) - 1;
     int byte0 = data&mask;
@@ -33,6 +34,6 @@ static int Memory::writeInt(int data, int wordAddress){
     EEPROM.write(byteAddress++,byte1);
     EEPROM.write(byteAddress++,byte2);
     EEPROM.write(byteAddress++,byte3);
-    EEPROM.commit();
+    //EEPROM.commit()
 }
 

@@ -1,6 +1,6 @@
-#include "../Time/Time.h"
-#include "../Hardware/Hardware.h"
-#include "../Communication/Communication.h"
+#include "Time/Time.h"
+#include "Hardware/Hardware.h"
+#include "Communication/Communication.h"
 
 Hardware hardware;
 Communication communication;

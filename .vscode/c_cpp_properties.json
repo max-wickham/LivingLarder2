@@ -19,7 +19,9 @@
                 "/home/max/Apps/arduino/hardware/arduino/avr/variants/standard",
                 "/home/max/Apps/arduino/hardware/tools/avr/lib/gcc/avr/7.3.0/include",
                 "/home/max/Apps/arduino/hardware/tools/avr/lib/gcc/avr/7.3.0/include-fixed",
-                "/home/max/Apps/arduino/hardware/tools/avr/avr/include"
+                "/home/max/Apps/arduino/hardware/tools/avr/avr/include",
+                "/home/max/Apps/arduino/libraries/**",
+                "/home/max/Apps/arduino/hardware/**"
             ],
             "forcedInclude": [
                 "/home/max/Apps/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"

@@ -5,31 +5,31 @@
 void WaterState::load(int &memoryOffset){
     // Read each value from memory and then increment the memory offset
     for(int i = 0; i < 4; i++){
-        waterSettings.trayWaterTimes[i] = Memory.readInt(memoryOffset++);
+        waterSettings.trayWaterTimes[i] = Memory::readInt(memoryOffset++);
     }
-    waterSettings.trayWaterUnits =  Memory.readInt(memoryOffset++);
+    waterSettings.trayWaterUnits =  Memory::readInt(memoryOffset++);
 }
 
 void WaterState::save(int &memoryOffset, WaterSettings newWaterSettings){
     this->waterSettings = newWaterSettings;
     // Write each value to memory and then increment the memory offset
     for(int i = 0; i < 4; i++){
-        Memory.writeInt(this->waterSettings.trayWaterTimes[i],memoryOffset++);
+        Memory::writeInt(this->waterSettings.trayWaterTimes[i],memoryOffset++);
     }
-    Memory.writeInt(this->waterSettings.trayWaterUnits,memoryOffset++);
+    Memory::writeInt(this->waterSettings.trayWaterUnits,memoryOffset++);
 }
 
 void LightState::load(int &memoryOffset){
     // Read each value from memory and then increment the memory offset
-    this->lightSettings.startTime = Memory.readInt(memoryOffset++);
-    this->lightSettings.endTime = Memory.readInt(memoryOffset++);
+    this->lightSettings.startTime = Memory::readInt(memoryOffset++);
+    this->lightSettings.endTime = Memory::readInt(memoryOffset++);
 }
 
 void LightState::save(int &memoryOffset, LightSettings newLightSettings){
     this->lightSettings = newLightSettings;
     // Write each value to memory and then increment the memory offset
-    Memory.writeInt(this->lightSettings.startTime,memoryOffset++);
-    Memory.writeInt(this->lightSettings.endTime,memoryOffset++);
+    Memory::writeInt(this->lightSettings.startTime,memoryOffset++);
+    Memory::writeInt(this->lightSettings.endTime,memoryOffset++);
 }
 
 Hardware::Hardware(int memoryOffset){

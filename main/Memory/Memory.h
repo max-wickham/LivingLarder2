@@ -3,6 +3,7 @@
 
 
 class Memory{
+    public:
     static int readInt(int wordAddress);
-    static int writeInt(int wordAddress);
+    static int writeInt(int data, int wordAddress);
 };
